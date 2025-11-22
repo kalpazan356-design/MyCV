@@ -459,10 +459,33 @@ a.inline { color: inherit; text-decoration: underline; }
         <div class="section">
           <h3>Summary</h3>
           <p>
-            I am a responsible professional with a Bachelor's degree in Computer Science and Information Security from the University of Library Studies and Information Technologies (UNIBIT). At 22, I have diverse experience in roles like supermarket associate, sales agent in a call center, and customer service representative for Crocs, where I was promoted to back-office specialist. My technical skills include web development (HTML, CSS, JavaScript, PHP), programming (C#, Python), and Linux server management. I am motivated to apply my skills in a dynamic environment to further my career.
+            I am a responsible professional with a Bachelor's degree in Computer Science and Information Security from the University of Library Studies and Information Technologies (UNIBIT). At <p>Age: <span id="age"></span></p>
+, I have diverse experience in roles like supermarket associate, sales agent in a call center, and customer service representative for Crocs, where I was promoted to back-office specialist. My technical skills include web development (HTML, CSS, JavaScript, PHP), programming (C#, Python), and Linux server management. I am motivated to apply my skills in a dynamic environment to further my career.
           </p>
         </div>
+<script>
+  function calculateAge(birthYear, birthMonth, birthDay) {
+    const today = new Date();
+    let age = today.getFullYear() - birthYear;
 
+    // Adjust if birthday has not occurred yet this year
+    if (
+        today.getMonth() + 1 < birthMonth ||
+        (today.getMonth() + 1 === birthMonth && today.getDate() < birthDay)
+    ) {
+        age--;
+    }
+
+    return age;
+}
+
+// Your birthday: 25 August 2001 (change day if needed)
+const age = calculateAge(2001, 8, 25);
+
+// Insert into your CV page
+document.getElementById("age").textContent = age;
+
+</script>
         <div class="section" id="skills">
           <h3>Skills</h3>
           <div class="skills">
@@ -781,6 +804,7 @@ backToTop.addEventListener('click', () => {
   </script>
 </body>
 </html>
+
 
 
 
